@@ -1,0 +1,43 @@
+.im-pager {
+	li {
+		display: inline-block;
+		margin-right: 5px;
+
+		a {
+			border-radius: 7%;
+			font-size: 12px;
+			padding: 6px 12px;
+			text-decoration: none;
+			vertical-align: top;
+
+			&:hover {
+				background-color: #6979B5;
+			}
+
+			&:visited {
+				background-color: #6979B5;
+			}
+		}
+
+		.btn {
+			background-color: #6979B5;
+			color: #FFF;
+		}
+
+		.item {
+			border: 1px solid #D0D1E6;
+			border-radius: 7%;
+			color: #6979B5;
+			padding: 6px 12px;
+
+			&:hover {
+				color: #FFF;
+			}
+		}
+
+		.selected {
+			background-color: #6979B5;
+			color: #FFF;
+		}
+	}
+}

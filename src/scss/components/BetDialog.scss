@@ -1,0 +1,273 @@
+@import "../mixins.scss";
+
+.bet-dialog {
+	@include dialog-frame;
+
+	.dialog-wrapper {
+		@include dialog-wrapper(395px, 508px);
+		height: auto;
+		display: inline-block;
+		z-index: 150;
+		transform: none;
+		left: 50%;
+		top: 50%;
+		margin-left: -157.5px;
+		margin-top: -200px;
+
+		.dialog {
+			box-shadow: 0px 15px 70px 5px #45474E;
+			border-radius: 8px;
+			font-size: 16px;
+			overflow: hidden;
+			@include dialog(395px, 508px);
+			height: auto;
+			display: inline-block;
+
+			.header {
+				background-image: url("../img/bet-dialog-bg.png");
+				background-size: 100%;
+				height: auto;
+				padding-bottom: 10px;
+				padding-left: 20px;
+				padding-right: 20px;
+				position: relative;
+
+				.row1 {
+					height: 65px;
+					text-align: center;
+
+					.dialog-title {
+						color: #FFF;
+						display: inline-block;
+						height: 65px;
+						line-height: 65px;
+						font-size: 18px;
+					}
+				}
+
+				.bet-content {
+					display: inline-block;
+					height: auto;
+					/*transition: height .3s;*/
+					width: 100%;
+
+					.table {
+						display: inline-block;
+						height: auto;
+						width: 100%;
+
+						.thead {
+							width: 100%;
+
+							.tr {
+								height: 33.75px;
+
+								.td {
+									color: #C0C6E7;
+									display: inline-block;
+									font-size: 13px;
+									height: 33.75px;
+									line-height: 33.75px;
+									text-align: left;
+									vertical-align: top;
+								}
+							}
+						}
+
+						.tbody {	
+							display: inline-block;
+							height: auto;
+							overflow: hidden;
+							position: relative;
+							/*transition: height .5s;*/
+							width: 100%;
+
+							.tr {
+								height: 33.75px;
+								position: absolute;
+								right: 0;
+								width: 100%;
+								transition: top .5s;
+
+								.td {
+									color: #FFF;
+									display: inline-block;
+									font-size: 13px;
+									height: 33.75px;
+									line-height: 33.75px;
+									text-align: left;
+									vertical-align: top;
+								}
+
+								.td5 {
+									text-align: right;
+
+									img {
+										cursor: pointer;
+										vertical-align: middle;
+									}
+								}
+							}
+						}
+
+						.td1 {
+							width: 90px;
+						}
+
+						.td2 {
+							width: 80px;
+						}
+
+						.td3 {
+							width: 100px;
+							text-align: center;
+						}
+
+						.td4 {
+							width: 60px;
+						}
+
+						.td5 {
+							width: 20px;
+						}
+					}
+				}
+
+				.close {
+					cursor: pointer;
+					position: absolute;
+					right: 10px;
+					top: 5px;
+				}
+			}
+
+			.money {
+				color: #999999;
+				padding: 10px 20px;
+
+				.row1 {
+					height: 40px;
+					line-height: 40px;
+					position: relative;
+
+					.tzje {
+						float: left;
+						font-size: 15px;
+					}
+
+					.tzxe-title {
+						float: right;
+						font-size: 12px;
+					}
+
+					.tzxe-value {
+						float: right;
+						font-size: 12px;
+					}
+				}
+
+				.row2 {
+					.input-outer {
+						border: 1px solid #E5E9F5;
+						border-radius: 4px;
+						padding: 0 5px;
+						height: 35px;
+						line-height: 35px;
+						position: relative;
+						
+						.money-icon {
+							color: #8393C9;
+							display: inline-block;
+							height: 35px;
+							line-height: 35px;
+							width: 10%;
+							text-align: center;
+						}
+
+						input {
+							border: 0;
+							color: #8393C9;
+							display: inline-block;
+						    height: 35px;
+						    line-height: 35px;
+						    width: 90%;
+						    vertical-align: top;
+							position: absolute;
+							top: 0;
+							right: 0;
+							background: none;
+						}
+					}
+				}
+			}
+
+			.chips {
+				background: linear-gradient(to bottom, #FFF, #F0F6FF);
+				height: 78px;
+				line-height: 78px;
+
+				ul {
+					text-align: center;
+
+					li {
+						background-image: url("../img/chip.png");
+						background-size: 58px 58px;
+						background-position: 2px 0;
+						border-radius: 50%;
+						color: #FFF;
+						cursor: pointer;
+						display: inline-block;
+						height: 58px;
+						line-height: 58px;
+						margin: 0 6px;
+						text-align: center;
+						width: 58px;
+					}
+
+					.selected {
+						background-image: url("../img/chip-selected.png");
+						transform: rotateY(-360deg);
+						transition: transform 0.3s;
+					}
+				}
+			}
+
+			.footer {
+				height: 132px;
+
+				.row1 {
+					color: #A1A1A1;
+					font-size: 14px;
+					height: 30px;
+					line-height: 30px;
+					text-align: center;
+				}
+
+				.row2 {
+					color: #0AC645;
+					font-size: 24px;
+					font-weight: bold;
+					height: 40px;
+					text-align: center;
+				}
+
+				.row3 {
+					height: 65px;
+					text-align: center;
+
+					.sure {
+						background-color: #8393CA;
+						border-radius: 20px;
+						margin-top: 10px;
+						width: 170px;
+					}
+				}
+			}
+		}
+	}
+
+	& + .overlay3 {
+		pointer-events: none;
+		visibility: hidden;
+	}
+}

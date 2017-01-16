@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Keno</title>
+
+        <!-- build:css -->
+        <!-- endbuild -->
+        <style type="text/css">
+			@font-face {
+			    font-family: 'MyFont';
+			    src: url('../fonts/Arial.ttf') format('truetype');
+			    font-weight: normal;
+			    font-style: normal;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="keno" class="keno pageHide">
+			<div class="header">
+				<div class="game-name">IM KENO</div>
+
+				<!--<div class="logo-arr logo"></div>-->
+				<!--<div class="logo-arr big-logo"></div>-->
+
+				<div class="feedback top-item" data-value="userFeedback">
+					<div class="img">
+						<img src="../img/feedback.png"/>
+					</div>
+					<div class="text" data-i18n="user feedback"></div>
+					<div class="dot" style="display: none;"><span>0</span></div>
+				</div>
+
+				<div class="game-guide top-item" data-value="userGuide">
+					<div class="img">
+						<img src="../img/game-guide.png"/>
+					</div>
+					<div class="text" data-i18n="game rules"></div>
+				</div>
+
+				<div class="bet-record top-item" data-value="bettingRecords">
+					<div class="img">
+						<img src="../img/bet-record.png"/>
+					</div>
+					<div class="text" data-i18n="bet history"></div>
+					<div class="dot" style="display: none;"><span>0</span></div>
+				</div>
+
+				<div class="draw-results top-item" data-value="drawResults">
+					<div class="img">
+						<img src="../img/draw-results.png"/>
+					</div>
+					<div class="text" data-i18n="draw results"></div>
+					<div class="dot" style="display: none;"><span>0</span></div>
+				</div>
+
+				<div class="divider"></div>
+
+				<div class="lang" data-value="en">
+					<img src="../img/en-lang.png"/>
+				</div>
+
+				<div class="lang" data-value="zh">
+					<img src="../img/zh-lang.png"/>
+				</div>
+
+				<div class="balance">
+					<span class="text" data-i18n="balance"></span>
+					<span class="text money">192,656,520</span>
+					<span class="text secret"><a data-i18n="hide balance"></a></span>
+				</div>
+
+				<div class="user">
+					<span class="head-image"></span>
+					<span class="text name">TESTPLAYER2</span>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+			
+			<div class="main"></div>
+		</div>
+        <!-- build:js -->
+        <!-- endbuild -->
+	</body>
+</html>

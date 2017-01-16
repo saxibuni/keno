@@ -1,0 +1,28 @@
+{
+  "name": "keno",
+  "description": "keno",
+  "authors": [
+    "inplay-matrix"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "HTML/CSS",
+    "Web",
+    "oTMS"
+  ],
+  "homepage": "",
+  "ignore": [],
+  "dependencies": {
+    "fastclick": "^1.0.6",
+    "i18next": "https://github.com/i18next/i18next.git#^3.4.1",
+    "jquery": "^3.1.0",
+    "gridster": "^0.5.6",
+    "dragula.js": "dragula#^3.7.1",
+    "jquery-i18next": "^0.2.0",
+    "draggabilly": "^2.1.1",
+    "jquery.pep": "^0.6.8",
+    "datetimepicker": "^2.5.4",
+    "Sortable": "^1.4.2",
+    "Modernizr": "http://modernizr.com/download/?-fontface-backgroundsize-borderimage-borderradius-boxshadow-flexbox-hsla-multiplebgs-opacity-rgba-textshadow-cssanimations-csscolumns-generatedcontent-cssgradients-cssreflections-csstransforms-csstransforms3d-csstransitions-applicationcache-canvas-canvastext-draganddrop-hashchange-history-audio-video-indexeddb-input-inputtypes-localstorage-postmessage-sessionstorage-websockets-websqldatabase-webworkers-geolocation-inlinesvg-smil-svg-svgclippaths-touch-webgl-shiv-mq-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes-load.zip"
+  }
+}

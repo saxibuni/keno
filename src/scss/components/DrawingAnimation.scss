@@ -1,0 +1,100 @@
+@import "../mixins.scss";
+
+.drawing-animation {
+    background-color: #F8FBFD;
+    position: absolute;
+    display: none;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+
+    .info {
+    	height: .5rem;
+    	line-height: .5rem;
+    	text-align: left;
+
+    	.title {
+    		color: #6979B5;
+    		display: inline-block;
+	    	height: .5rem;
+	    	line-height: .5rem;
+
+            &:first-child {
+                margin-left: .23rem;
+            }
+    	}
+
+        .summary {
+            background-color: #E9EDF8;
+            border: 1px solid #D2D6E9;
+            border-radius: 5px;
+            height: .28rem;
+            line-height: .28rem;
+            margin-top: .1rem;
+            margin-right: .2rem;
+            padding: 0 .1rem;
+
+            .text {
+                color: #697CB4;
+                display: inline-block;
+                height: .28rem;
+                line-height: .28rem;
+            }
+
+            .total {
+                margin-left: .02rem;
+            }
+        }
+
+        .left {
+            display: inline-block;
+            float: left;
+        }
+
+        .right {
+            display: inline-block;
+            float: right;
+        }
+    }
+
+    .wrapper {
+    	position: absolute;
+    	top: .5rem;
+    	left: 0;
+    	bottom: 0;
+    	width: 100%;
+
+    	.balls {
+    		position: relative;
+    		height: 100%;
+    		width: 100%;
+
+	    	.ball {
+	    		$ballSize: .36rem;
+
+	    		background-color: #6979B5;
+	    		border: 0;
+	    		border-radius: 50%;
+	    		color: #FFF;
+	    		opacity: 0;
+	    		font-size: 14px;
+	    		position: absolute;
+	    		width: $ballSize;
+	    		height: $ballSize;
+	    		line-height: $ballSize;
+	    		left: 50%;
+	    		margin-left: 0 - $ballSize/2;
+	    	}
+
+	    	.up {
+	    		top: 0;
+	    	}
+
+	    	.down {
+	    		top: 0.55rem;
+	    	}
+    	}
+    }
+}

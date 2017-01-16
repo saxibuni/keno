@@ -1,0 +1,321 @@
+@import "../mixins.scss";
+
+.clear {
+	clear:both; 
+	height: 0; 
+	line-height: 0; 
+	font-size: 0;
+}
+
+body {
+	//background-color: $theme-color;
+}
+.pageHide{
+ display: none;
+}
+.keno {
+	.higher-z-index {
+		z-index: 130;
+	}
+
+	.header {
+		background-color: #FFF;
+		color: #828282;
+		height: $headerHeight;
+		position: relative;
+		width: 100%;
+
+		.game-name {
+			background-color: $light-theme-color;
+			color: #FFF;
+			display: inline-block;
+			font-size: .2rem;
+			font-weight: bold;
+			float: left;
+			height: $headerHeight;
+			line-height: $headerHeight;
+			text-align: center;
+			width: 1.4rem;
+		}
+
+		.logo {
+			background-color: #FFF;
+			background-image: url("../img/logo.png");
+			background-repeat: no-repeat;
+			background-size: 2.5rem $headerHeight;
+			display: inline-block;
+			height: $headerHeight;
+			vertical-align: top;
+			width: 2.5rem;
+		}
+
+		.big-logo {
+			background-color: #FFF;
+			background-image: url("../img/big-logo.png");
+			background-repeat: no-repeat;
+			background-size: 8rem 1.7rem;
+			display: none;
+			position: absolute;
+			left: 1.4rem;
+			top: .7rem;
+			width: 8rem;
+			height: 1.7rem;
+			z-index: 200;
+		}
+
+		@mixin record-item{
+			border: 1px solid transparent;
+			cursor: pointer;
+			display: inline-block;
+			float: right;
+			font-size: .12rem;
+			margin-right: .1rem;
+			position: relative;
+
+			div {
+				display: inline-block;
+				height: $headerHeight;
+				line-height: $headerHeight;
+				vertical-align: top;
+			}
+
+			.img {
+				img {
+					vertical-align: middle;
+				    width: 30px;
+				    height: 31px;
+				}
+			}
+
+			.text {
+				font-size: .14rem;
+			}
+
+			.dot {
+				background-color: #F00;
+				border-radius: 6px;
+				cursor: pointer;
+				display: inline-block;
+				font-weight: bold;
+				height: .12rem;
+				position: absolute;
+				left: 30%;
+				padding: 0 0.04rem;
+				transition: all 1s;
+				top: .13rem;
+
+				span {
+				    color: #FFF;
+				    display: inherit;
+				    font-size: 0.12rem;
+				    -webkit-transform: scale(0.75);
+				    height: .12rem;
+				    line-height: .12rem;
+				    width: 100%;
+				}
+			}
+		}
+
+		.feedback {
+			@include record-item;
+			width: 1.2rem;
+			text-align: center;
+		}
+
+		.game-guide {
+			@include record-item;
+			width: 1.2rem;
+			text-align: center;
+
+			img {
+				width: 32px;
+				height: 36px;			
+			}
+		}
+
+		.bet-record {
+			@include record-item;
+			width: 1.4rem;
+			text-align: center;
+		}
+
+		.draw-results {
+			@include record-item;
+			width: 1.2rem;
+			text-align: center;
+		}
+
+		.highlight {
+			background-color: #FFF;
+		    border-left: 1px solid #EEEEEE;
+		    border-right: 1px solid #EEEEEE;
+		    padding: 0 5px;
+		    z-index: 130;
+
+			& ~ .divider {
+				opacity: 0;
+			}
+		}
+
+		.divider {
+			background-color: #EEEEEE;
+			display: inline-block;
+			float: right;
+			margin: 0 .15rem;
+			width: 1px;
+			height: 100%;
+		}
+
+		.lang {
+			cursor: pointer;
+			display: inline-block;
+			float: right;
+			height: $headerHeight;
+			line-height: $headerHeight;
+			margin-right: .15rem;
+
+			img {
+				display: inline-block;
+				margin-top: -0.26rem;
+				vertical-align: middle;
+			}
+
+			&:first-child {
+				margin-right: .3rem;
+			}
+		}
+
+		.user {
+			display: inline-block;
+			float: right;
+			font-size: .14rem;
+			height: $headerHeight;
+			line-height: $headerHeight;
+			width: 1.8rem;
+
+			.head-image {
+				background: url('../img/head.png');
+			    background-size: .35rem .35rem;
+			    display: inline-block;
+			    height: $headerHeight;
+			    line-height: $headerHeight;
+			    width: $headerHeight;
+			    background-position: .3rem .18rem;
+			    background-repeat: no-repeat;
+			}
+
+			.name {
+				display: inline-block;
+				height: $headerHeight;
+				line-height: $headerHeight;
+				vertical-align: top;
+			}
+		}
+
+		.balance {
+			display: inline-block;
+			float: right;
+			font-size: .14rem;
+			height: $headerHeight;
+			line-height: $headerHeight;
+			width: 2rem;
+
+			.secret {
+				color: #337ab7;
+				cursor: pointer;
+			}
+
+			.money {
+				margin-right: .1rem;
+			}
+		}
+	}
+
+	.main {
+		height: auto;
+		text-align: center;
+		padding: 10px 0;
+		text-align: center;
+		position: relative;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 1800px) {
+	html {
+		font-size: 90px;
+	}
+}
+
+@media screen and (max-width: 1650px) {
+	html {
+		font-size: 85px;
+	}
+}
+
+@media screen and (max-width: 1550px) {
+	html {
+		font-size: 75px;
+
+		.keno {
+			.header {
+				.top-item {
+					width: auto;
+				}
+
+				.user {
+					width: auto;	
+				}
+
+				$gap: 0.1rem;
+
+				.balance {
+					width: auto;
+					margin-right: $gap;
+
+					.money {
+						margin-right: $gap;
+					}
+				}
+
+				.divider {
+					margin: 0;
+					margin-right: $gap;
+				}
+
+				.lang {
+					margin-right: $gap;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1370px) {
+	html {
+		font-size: 70px;
+	}
+}
+
+@media screen and (max-width: 1270px) {
+	html {
+		font-size: 80px;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	html {
+		font-size: 70px;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	html {
+		font-size: 70px;
+
+		.container {
+			width: 50%;
+			text-align: center;
+		}
+	}
+}

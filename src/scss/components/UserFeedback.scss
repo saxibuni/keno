@@ -1,0 +1,123 @@
+@import "../mixins.scss";
+
+.user-feedback {
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: $headerHeight;
+	transition: all .3s;
+
+	.dialog-wrapper {
+		background-color: #FFF;
+		border-top: 1px solid #EEEEEE;
+		color: #A7A7A7;
+		height: 5rem;
+		margin-top: 0;
+		text-align: center;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 3rem;
+		z-index: 120;
+
+		.page1 {
+			height: 100%;
+			width: 100%;
+
+			.introduction {
+				border-bottom: 1px solid #EEEEEE;
+				color: #6979B5;
+				font-size: .14rem;
+				height: .5rem;
+				line-height: .5rem;
+			}
+
+			.survey {
+				margin-top: .2rem;
+
+				.title {
+					height: .3rem;
+					padding-left: 0.2rem;
+					text-align: left;
+
+					.number {
+						background: #EDEDED;
+						border-radius: 50%;
+						display: inline-block;
+						font-size: .14rem;
+						height: .2rem;
+						line-height: .2rem;
+						text-align: center;
+						vertical-align: top;
+						width: .2rem;
+					}
+
+					.text {
+						color: #000;
+						display: inline-block;
+						font-size: .14rem;
+						margin-left: .1rem;
+						vertical-align: top;
+					}
+				}
+
+				ul {
+					margin-top: .1rem;
+					padding-left: .63rem;
+					text-align: left;
+
+					li {
+						font-size: .12rem;
+						height: .3rem;
+						line-height: .3rem;
+					}
+				}
+			}
+
+			.submit-feedback {
+				margin-top: .3rem;
+				vertical-align: top;
+				width: 90%;
+			}
+		}
+
+		.page2 {
+			display: none;
+			height: 100%;
+			position: relative;
+			width: 100%;
+
+			.smile {
+				height: 50%;
+				text-align: center;
+
+				img {
+					margin-top: 40%;
+					height: .9rem;
+					width: .9rem;
+				}
+			}
+
+			.text1 {	
+				color: #000;
+				font-weight: bold;
+				font-size: .16rem;
+				height: 10%;
+				text-align: center;
+			}
+
+			.text2 {
+				font-size: .12rem;
+				height: 10%;
+				text-align: center;
+			}
+
+			.sure {
+				bottom: .2rem;
+				left: 5%;
+				position: absolute;
+				width: 90%;
+			}
+		}
+	}
+}

@@ -1,0 +1,200 @@
+@import "../mixins.scss";
+
+$thead-background-color: #B9C0DA;
+$tbody-background-color: #B9C0DA;
+
+.user-guide {
+	font-size: 14px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: $headerHeight;
+	transition: all .3s;
+	text-align: left;
+
+	.dialog-wrapper {
+		background-color: #FFF;
+		border-top: 1px solid #EEEEEE;
+		color: #828282;
+		height: 550px;
+		padding-left: 20px;
+		position: absolute;
+		left: 0;
+		overflow: hidden;
+		overflow-y: auto;
+		top: -70px;
+		right: 0;
+		z-index: 120;
+
+		.zh-table {
+			.menu{position:relative;z-index:100; width:auto;}   
+			.menu ul{list-style-type:none; padding:0; margin:0;}   
+			.menu li {float:left;position:relative; }   
+			.menu ul ul {visibility:hidden;position:absolute; }   
+			.menu table {position:absolute; top:30px; left:-5px; }
+			.menu table ul {border-bottom:1px solid #3e5074;}
+			.menu ul li:hover ul,   
+			.menu ul a:hover ul{visibility:visible;}   
+			.menu a{display:block;margin-right:30px;color:#fff;text-decoration:none; color:#000033; font-weight:bold; padding-bottom:10px; padding-top:10px;}   
+			.menu a:hover{color:#000033; font-weight:bold; background: url('../images/button_bg.gif') no-repeat center -109px;}
+			.menu ul ul {}
+			.menu ul ul a {margin-right:0;}
+			.menu ul ul li {clear:both;text-align:left;}   
+			.menu ul ul li a{
+				padding:2px 5px;
+				display:block;
+				width:120px;
+				border:1px solid #3e5074;
+				color:#803e49;
+				margin-bottom:-1px;
+				font-weight:normal;
+				background:#FFF;
+			}   
+			.menu ul ul li a:hover{
+				border:0;
+				background:#b1bcd1;
+				border:1px solid #3e5074;
+				color:#803e49;
+				font-weight:normal;
+			}   
+			.clear-both			{clear: both; width: 0; height: 0; line-height: 0; font-size: 0;}
+			.divline			{background: url('../images/content_bg.gif') no-repeat center -150px; height: 2px; line-height: 0; font-size: 0;}
+
+			p {
+				margin-bottom: 10px;
+			}
+
+			.titles {
+				font-size:14px;
+				font-weight:bold;
+				color:#803e49;
+				margin-top:10px;
+			}
+			.subTitles {
+				font-weight:bold;
+				color:#803e49;
+			}
+			a:link, a:visited {
+				color: #803e49;
+				text-decoration: none;
+			}
+			.faqQuestion {
+				color:#FFF;
+				font-weight:bold;
+				padding:5px 20px;
+				background-color: $light-theme-color;
+				margin-top: 20px;
+			}
+			.faqAnswer { padding-left:20px}
+			.backToTop {display:none; text-align:right; margin-bottom:10px;}
+			.backToTop a{
+				color:#803e49;
+				text-decoration:none;
+			}
+			.backToTop a:hover {
+				color:#803e49;
+				text-decoration:none;
+			}
+			.rowHeader {
+				font-weight:bold;
+				background-color: #e3cdcd;
+			}
+			.row1{ background:#e0e0e0;}
+			.row2 { background:#d3d3d3;}
+			.delete { color:#F00;}
+			.add {color:#00F;}
+
+			.title2		{ font-weight:bold; }
+			.title3		{padding-left:25px; }
+			.title4		{padding-left:55px; }
+			.title5		{padding-left:105px; }
+			.title6		{padding-left:165px; }
+		}
+
+		.en-table {
+			.menu{position:relative;z-index:100; width:auto;}   
+			.menu ul{list-style-type:none; padding:0; margin:0;}   
+			.menu li {float:left;position:relative; }   
+			.menu ul ul {visibility:hidden;position:absolute; }   
+			.menu table {position:absolute; top:30px; left:-5px; }
+			.menu table ul {border-bottom:1px solid #3e5074;}
+			.menu ul li:hover ul,   
+			.menu ul a:hover ul{visibility:visible;}   
+			.menu a{display:block;margin-right:30px;color:#fff;text-decoration:none; color:#000033; font-weight:bold; padding-bottom:10px; padding-top:10px;}   
+			.menu a:hover{color:#000033; font-weight:bold; background: url('../images/button_bg.gif') no-repeat center -109px;}
+			.menu ul ul {}
+			.menu ul ul a {margin-right:0;}
+			.menu ul ul li {clear:both;text-align:left;}   
+			.menu ul ul li a{
+				padding:2px 5px;
+				display:block;
+				width:120px;
+				border:1px solid #3e5074;
+				color:#803e49;
+				margin-bottom:-1px;
+				font-weight:normal;
+				background:#FFF;
+			}   
+			.menu ul ul li a:hover{
+				border:0;
+				background:#b1bcd1;
+				border:1px solid #3e5074;
+				color:#803e49;
+				font-weight:normal;
+			}   
+			.clear-both			{clear: both; width: 0; height: 0; line-height: 0; font-size: 0;}
+			.divline			{background: url('../images/content_bg.gif') no-repeat center -150px; height: 2px; line-height: 0; font-size: 0;}
+
+			p {
+				margin-bottom: 10px;
+			}
+
+			.titles {
+				font-size:14px;
+				font-weight:bold;
+				color:#803e49;
+				margin-top:10px;
+			}
+			
+			.subTitles {
+				font-weight:bold;
+				color:#803e49;
+			}
+			a:link, a:visited {
+				color: #803e49;
+				text-decoration: none;
+			}
+			.faqQuestion {
+				color:#FFF;
+				font-weight:bold;
+				padding:5px 20px;
+				background-color: $light-theme-color;
+				margin-top: 20px;
+			}
+			.faqAnswer { padding-left:20px}
+			.backToTop {display:none; text-align:right; margin-bottom:10px;}
+			.backToTop a{
+				color:#803e49;
+				text-decoration:none;
+			}
+			.backToTop a:hover {
+				color:#803e49;
+				text-decoration:none;
+			}
+			.rowHeader {
+				font-weight:bold;
+				background-color: #e3cdcd;
+			}
+			.row1{ background:#e0e0e0;}
+			.row2 { background:#d3d3d3;}
+			.delete { color:#F00;}
+			.add {color:#00F;}
+
+			.title2		{ font-weight:bold; }
+			.title3		{padding-left:25px; }
+			.title4		{padding-left:55px; }
+			.title5		{padding-left:105px; }
+			.title6		{padding-left:165px; }
+		}
+	}
+}

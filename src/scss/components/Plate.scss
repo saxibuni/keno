@@ -1,0 +1,991 @@
+@import "../mixins.scss";
+
+$plateWidth                 :     5.68rem;
+$plateHeight                :     $plateWidth * 556 / 568;
+$plateW                     :     568;
+$plateH                     :     $plateW * 556 / 568;
+$landmarkHeight             :     $plateHeight * 50 / $plateH;
+$headInfoHeight             :     $plateHeight * 73 / $plateH;
+$platePlayHeight            :     $plateHeight * 270 / $plateH;
+$plateInfoHeight            :     $plateHeight * 163 / $plateH;
+$headInfoHeightNoProgress   :     $headInfoHeight - 0.03rem;
+$columnHeight               :     $platePlayHeight / 6;
+$drawRouteUpHeight          :     $plateHeight * 42 / $plateH;
+$drawRouteDownHeight        :     $plateHeight * 121 / $plateH;
+$timeline-play-height       :     $plateHeight * 28 / $plateH;
+$timeline-chunk-zone-height :     $plateInfoHeight - $timeline-play-height;
+
+$boxLength                  :     $drawRouteDownHeight / 5;
+$headInfoFlagZoneWidth      :     $plateWidth * 113 / $plateW;
+$drawIssueWidth             :     $plateWidth * 62 / $plateW;
+$drawIssueCountdownWidth    :     $plateWidth * 131 / $plateW;
+$headInfoTimeWidth          :     $drawIssueWidth + 0.13rem + $drawIssueCountdownWidth;
+$headInfoCategoryWidth      :     $plateWidth * 230 /$plateW;
+$nationLeft                 :     $plateWidth * 113 / $plateW;
+$drawRouteBigWidth          :     $plateWidth * 528 / $plateW;
+$drawRouteSmallWidth        :     $plateWidth * 40 / $plateW;
+$flagOuterLeft              :     $plateWidth * 17 /$plateW;
+$flagOuterLength            :     0.86rem;
+$draw-detail-td-height      :     0.18rem;
+$ball-size                  :     0.31rem;
+
+$category-font-size         :     0.18rem;
+$category-item-height       :     0.35rem;
+$draw-status-font-size      :     0.20rem;
+$issue-font-size            :     0.15rem;
+$column-big-font-size       :     0.18rem;
+$column-small-font-size     :     0.16rem;
+$nation-font-size           :     0.20rem;
+$countdown-font-size        :     0.40rem;
+
+.clear {
+	clear:both; 
+	height: 0; 
+	line-height: 0; 
+	font-size: 0;
+}
+
+.coverDom-tie{
+	background-color: #f8fbfd;
+	opacity: 0.85;
+	position: absolute;
+	display: none;
+	width: 33.34%;
+	height: 0.45rem;
+	top: 0;
+	// z-index: 2;
+	box-sizing: border-box;
+	border-left: 1px solid #B7BFC7;
+}
+.coverDom-UD{
+	background-color: #f8fbfd;
+	opacity: 0.85;
+	position: absolute;
+	display: none;
+	width: 33.34%;
+	height: 0.45rem;
+	top: 0.45rem;
+	// z-index: 2;
+	box-sizing: border-box;
+	border-top: 1px solid #B7BFC7;
+}
+
+.coverDom-UDH{
+	background-color: #f8fbfd;
+	opacity: 0.85;
+	position: absolute;
+	display: none;
+	width: 33.34%;
+	height: 0.45rem;
+	top: 0.45rem;
+	// z-index: 2;
+}
+
+.coverDom-OES{
+	background-color: #f8fbfd;
+	opacity: 0.85;
+	position: absolute;
+	display: none;
+	width: 33.34%;
+	height: 0.45rem;
+	top: 0.9rem;
+	// z-index: 2;
+}
+.coverDom-5E{
+	background-color: #f8fbfd;
+	opacity: 0.85;
+	position: absolute;
+	display: none;
+	width: 20%;
+	height: 0.37rem;
+	bottom: 0;
+	// z-index: 2;
+}
+.coverDom{
+  pointer-events:none;
+}
+@mixin plate {
+	background-color: #FFF;
+	border: none;
+	border-radius: 5px;
+	display: inline-block;
+	font-size: .16rem;
+	height: $plateHeight;
+	margin: 10px;
+	margin-bottom: 0;
+	width: $plateWidth;
+	overflow: hidden;
+	position: relative;
+	transition: all .5s;
+	z-index: 2;
+
+	.plate-head-zone {
+		height: $landmarkHeight + $headInfoHeight;
+		position: relative;
+		width: 100%;
+
+		.landmark {
+			border-bottom: 1px solid #238EEA;
+			height: $landmarkHeight;
+			background-size: 100% $landmarkHeight;
+			height: $landmarkHeight;
+			width: 100%;
+
+			.nation {
+				color: #FFF;
+				font-size: $nation-font-size;
+				position: absolute;
+				left: $nationLeft;
+				top: 0.2rem;
+			}
+		}
+
+		.beijing {
+			background-image: url("../img/china-landmark.png");
+		}
+
+		.canada {
+			background-image: url("../img/canada-landmark.png");
+		}
+
+		.west-canada {
+			background-image: url("../img/canada-landmark.png");
+		}
+
+		.australia {
+			background-image: url("../img/australia-landmark.png");
+		}
+
+		.malta {
+			background-image: url("../img/malta-landmark.png");
+		}
+
+		.slovakia {
+			background-image: url("../img/slovakia-landmark.png");
+		}
+
+		.head-info {
+			height: $headInfoHeight;
+			position: relative;
+			text-align: left;
+
+			.flag-zone {
+				display: inline-block;
+				height: $headInfoHeightNoProgress;
+				width: $headInfoFlagZoneWidth;
+				position: relative;
+
+				.flag-outer {
+					border-radius: 0.05rem;
+					display: inline-block;
+					width: $flagOuterLength;
+					height: $flagOuterLength;
+					position: absolute;
+					top: 0 - $landmarkHeight/4;
+					left: $flagOuterLeft/3;
+
+					.flag {
+						height: $flagOuterLength;
+						width: $flagOuterLength;
+					}	
+				}
+			}
+
+			.time {
+				display: inline-block;
+				height: $headInfoHeightNoProgress;
+				line-height: $headInfoHeightNoProgress;
+				margin-right: 0.17rem;
+				vertical-align: top;
+				width: $headInfoTimeWidth;
+
+				.draw-issue {
+					display: inline-block;
+					height: $headInfoHeightNoProgress;
+					line-height: $headInfoHeightNoProgress;
+					margin-top: .02rem;
+					margin-right: 0.13rem;
+					padding: 0.02rem 0;
+					width: $drawIssueWidth;
+					  .ts{
+						background-color:  $draw-pending-ts-color !important;
+					  }
+					.draw-status {
+						background-color: $draw-pending-bk-color;
+						border-radius: .14rem;
+						color: #FFF;
+						height: $headInfoHeightNoProgress/2 - 0.05rem;
+						line-height: $headInfoHeightNoProgress/2 - 0.05rem;
+						text-align: center;
+						span {
+							display: inline-block;
+							font-size: $draw-status-font-size;
+							-webkit-transform: scale(0.66666);
+						}
+					}
+
+					.issue {
+						height: 0.25rem;
+						line-height: 0.25rem;
+
+						span {
+							display: inline-block;
+							font-size:  $issue-font-size;
+							-webkit-transform: scale(0.75);
+							margin-left: -0.08rem;
+						}
+					}
+				}
+
+				.count-down {
+					color: $font-color1;
+					display: inline-block;
+					font-size: $countdown-font-size;
+					height: $headInfoHeightNoProgress;
+					line-height: $headInfoHeightNoProgress;
+					text-align: center;
+					vertical-align: top;
+					width: $drawIssueCountdownWidth;
+				}
+			}
+
+			.category {
+				border-left: .01rem solid #D5D9DE;
+				display: inline-block;
+				height: .3rem;
+				line-height: .3rem;
+				vertical-align: top;
+				margin-top: ($headInfoHeightNoProgress - .3rem)/2;
+				width: $headInfoCategoryWidth - .01rem;;
+				text-align: center;
+
+				.playing-item {
+					border-radius: 0.05rem;
+					color: $font-color1;
+					display: inline-block;
+					cursor: pointer;
+					display: inline-block;
+					font-size: $category-font-size;
+				    height: $category-item-height;
+				    line-height: $category-item-height;
+					text-align: center;
+					transition: all .5s;
+					width: 50%;
+				}
+
+				.selected {
+					background-color: $light-theme-color;
+					color: #FFF;
+				}
+			}
+		}
+
+		.countdown-progress {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+	}
+
+	.plate-play-zone {
+		height: $platePlayHeight;
+    	overflow: hidden;
+    	position: relative;
+
+		.qw-plate {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			transition: left .5s;
+			width: 100%;
+			text-align: center;
+
+			.row {
+				border-bottom: 1px solid #B7BFC7;
+				height: $columnHeight;
+				line-height: $columnHeight;
+				overflow: hidden;
+
+				.column {
+					/*border-right: 1px solid #B7BFC7;*/
+				  box-shadow: 1px 0 0 0 #B7BFC7;
+					cursor: pointer;
+					display: inline-block;
+					height: 100%;
+
+					.text {
+						color: $plate-font-color;
+						display: inline-block;
+						font-size: $column-big-font-size;
+						text-align: center;
+						width: 60%;
+					}
+
+					.value {
+						color: #9D9D9D;
+						display: inline-block;
+						font-size: $column-small-font-size;
+						text-align: center;
+						width: 40%;
+					}
+
+					&:last-child {
+					  box-shadow: 0 0 0 0 #B7BFC7;
+					}
+				}
+
+				.hover-class {
+					&:hover {
+						background-color: $hover-theme-color;
+						color: #FFF;
+						
+						.text {
+							color: #FFF;								
+						}
+
+						.value {
+							color: #FFF;								
+						}
+					}
+				}
+					
+				.selected {
+					background-color: $light-theme-color;
+					color: #FFF;
+
+					.text {
+						color: #FFF;								
+					}
+						
+					.value {
+						color: #FFF;								
+					}
+				}
+
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+		}
+
+		.rx-plate {
+			position: absolute;
+			top: 0.03rem;
+			left: 100%;
+			height: 100%;
+			transition: left .5s;
+			width: 100%;
+
+			.row {
+				height: ($platePlayHeight - 0.1) / 7;
+				line-height: ($platePlayHeight - 0.1) / 7;
+				text-align: left;
+
+				.column {
+					display: inline-block;
+					text-align: center;
+					width: 8.3%;
+
+					.ball {
+						background-color: $ball-background-color;
+						border: none;
+						border-radius: 50%;
+						color: #656565;
+						cursor: pointer;
+						display: inline-block;
+						font-size: .12rem;
+						height: $ball-size;
+						line-height: $ball-size;
+						text-align: center;
+						transition: all .5s;
+						width: $ball-size;
+					}
+
+					.selected {
+						background-color: $light-theme-color;
+						color: #FFF;
+					}
+				}
+			}
+		}
+	}
+
+	.plate-info-zone {
+		border-top: 1px solid #B7BFC7;
+		height: $plateInfoHeight;
+		position: relative;
+		overflow: hidden;
+
+		.draw-route {
+			height: 100%;
+			overflow: hidden;
+			position: absolute;
+			left: 0;
+			top: 0;
+			transition: left .5s;
+			width: 100%;
+
+			.wrapper {
+				position: relative;
+				height: 100%;
+				width: 100%;
+
+				.left-zone {
+					display: inline-block;
+					height: 100%;
+					vertical-align: top;
+					position: absolute;
+					left: 0;
+					top: 0;
+					width : $drawRouteBigWidth;
+
+					ul {
+						border-bottom: 1px solid #B7BFC7;
+						height: $drawRouteUpHeight;
+						line-height: $drawRouteUpHeight;
+						position: relative;
+						width : 100%;
+						
+						li {
+							color: $plate-font-color;
+							cursor: pointer;
+							display: inline-block;
+							font-size: .15rem;
+							text-align: center;
+							vertical-align: top;
+							width: 16.5%;
+
+							span {
+								z-index: 1;
+							}
+						}
+
+						.circle {
+							border: none;
+							background-color: $light-theme-color;
+							border-radius: .15rem;
+							color: #FFFFFF;
+							height: .26rem;
+							line-height: .26rem;
+							width: .66rem;
+							position: absolute;
+							left: 0.12rem;
+							top: 0.08rem;
+							transition: left .5s;
+						}
+					}
+
+					.map {
+						overflow: hidden;
+						position: relative;
+						height: $drawRouteDownHeight;
+						width : 100%;
+
+						.table {
+							text-align: left;
+							width: 100%;
+							height: 100%;
+							position: relative;
+						  .table_left{
+							background: url(../img/left-arrow.png) no-repeat center #ffffff;
+							width: 5%;
+							height: 100%;
+							position: absolute;
+							left: 0;
+							top: 0;
+							background-size:0.16rem;
+							box-shadow: 1px 0 0 0 #B7BFC7;
+							cursor: pointer;
+							z-index: 1;
+						  }
+						  .table_right{
+							background: url(../img/right-arrow.png) no-repeat center #ffffff;
+							width: 5%;
+							height: 100%;
+							position: absolute;
+							right: 0;
+							top: 0;
+							background-size:0.16rem;
+							box-shadow: -1px 0 0 0 #B7BFC7;
+							cursor: pointer;
+							z-index: 1;
+						  }
+
+							.tbody {
+							  position: absolute;
+							  transition: all 0.3s;
+							  // overflow-x:hidden;
+							  // left: 5%;
+							  // right: 5%;
+							  left: 0.26rem;
+								.tr {
+									height: $boxLength;
+									line-height: $boxLength;
+
+									.td {
+										border-bottom: 1px solid #B7BFC7;
+										color: $plate-font-color;
+										display: inline-block;
+										height: $boxLength;
+										line-height: $boxLength;
+									    vertical-align: top;
+									    font-size: 0.1rem;
+									    text-align: center;
+									    box-shadow: 1px 0 0 0 #B7BFC7;
+									    width: 0.2376rem;
+
+									    span{
+									    	display: inline-block;
+									    	width: 100%;
+									    	height: 100%;
+									    }
+									}
+
+									&:last-child {
+										.td {
+											border-bottom: none;
+										}
+									}
+								}
+							  .TabScale{
+								-moz-transform:scale(0.5);
+								-webkit-transform:scale(0.5);
+								-o-transform:scale(0.5);
+								transform: scale(0.65);
+								display: block;
+								text-align: center;
+								font-weight: 700;
+								width: 165%;
+								transform-origin: center;
+							  }
+							}
+						}					
+					}
+				}
+
+				.draw-route-naver {
+					background-color: #F3F9FA;
+					border-left: 1px solid #B7BFC7;
+					cursor: pointer;
+					display: inline-block;
+					height: 100%;
+					position: absolute;
+					right: 0;
+					top: 0;
+					height: 100%;
+					width : $drawRouteSmallWidth;
+					z-index: 1;
+
+					.arrow {
+						height: 0.52rem;
+						line-height: 0.52rem;
+						text-align: center;
+
+						img {
+							vertical-align: bottom;
+						}
+					}
+
+					.text {
+						color: $plate-font-color;
+						font-size: .12rem;
+						padding: 0.1rem;
+						text-align: center;
+					}
+				}
+			}
+		}
+
+		.draw-detail {
+			height: 100%;
+			overflow: hidden;
+			position: absolute;
+			left: 100%;
+			top: 0;
+			transition: left .5s;
+			width: 100%;
+
+			.wrapper {
+				position: relative;
+				height: 100%;
+				text-align: left;
+
+				.draw-detail-naver {
+					background-color: #F3F9FA;
+					border-right: 1px solid #B7BFC7;
+					display: inline-block;
+					cursor: pointer;
+					vertical-align: top;
+					position: absolute;
+					left: 0;
+					top: 0;
+					height: 100%;
+					width: $drawRouteSmallWidth;
+					z-index: 1;
+
+					.arrow {
+						height: 0.52rem;
+						line-height: 0.52rem;
+						text-align: center;
+
+						img {
+							transform: rotateZ(180deg);
+							vertical-align: bottom;
+						}
+					}
+
+					.text {
+						color: $plate-font-color;
+						font-size: .12rem;
+						padding: 0.1rem;
+						text-align: center;
+					}
+				}
+
+				.timeline {
+					background-color: #F7FAFD;
+					display: inline-block;
+					width: auto;
+					position: absolute;
+					right: 0;
+					top: 0;
+					height: 100%;
+					width: $drawRouteBigWidth;
+
+					.play {
+						height: $timeline-play-height;
+						position: relative;
+
+						.prev {
+							cursor: pointer;
+							position: absolute;
+							top: 0.04rem;
+							left: 0.06rem;
+							opacity: 0.8;
+
+							&:hover {
+								opacity: 1;
+							}
+						}
+
+						.next {
+							cursor: pointer;
+							position: absolute;
+							top: 0.04rem;
+							right: 0.06rem;
+							opacity: 0.8;
+
+							&:hover {
+								opacity: 1;
+							}
+						}
+					}
+
+					.timeline-slider {
+						width: $drawRouteBigWidth;
+
+						.chunks-line {
+							height: $timeline-chunk-zone-height;
+							position: relative;
+							transition: left .5s;
+							min-width: 100%;
+
+							.chunk {
+								display: inline-block;
+								height: 100%;
+								width: $drawRouteBigWidth;
+								& > .chunk-up:nth-child(1){
+								  float: right;
+								}
+								.chunk-up {
+									height: 100%;
+									width: 50%;
+								}
+								.chunk-down {
+									height: 50%;
+									width: 100%;
+								}
+
+								.item {
+									display: inline-block;
+									
+									text-align: center;
+
+									.item-wrapper {
+										display: inline-block;
+										text-align: left;
+									  .value1,.value4{
+										border-left: 1.5px solid #c3c3c3 !important;
+									  }
+										.info {
+											color: $theme-color;
+											font-size: .14rem;
+											height: .25rem;
+											line-height: .25rem;
+
+											.issue {
+												margin-right: .1rem;
+											}
+
+											.total {
+												color: $light-theme-color;
+											}
+										}
+
+										.table {
+											border-left: 1px solid #C5CCD2;
+											display: inline-block;
+
+											.tbody {
+												.row {
+													height: .19rem;
+
+													.td {
+														border: 1px solid #C5CCD2;
+														border-left: none;
+														color: #444444;
+														display: inline-block;
+														height: $draw-detail-td-height;
+														line-height: $draw-detail-td-height;
+														width: $draw-detail-td-height;
+														text-align: center;
+														vertical-align: top;
+
+														span {
+															display: inline-block;
+															height: $draw-detail-td-height;
+															line-height: $draw-detail-td-height;
+															font-size: .14rem;
+															vertical-align: text-top;
+															-webkit-transform: scale(0.75); 
+														}
+													}
+
+													&:first-child {
+														.td {
+															border-bottom: none;
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+
+								.left-item {
+									float: left;
+									margin-left: 0.06rem;
+								}
+
+								.right-item {
+								  float: left;
+								  margin-left: 0.06rem;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.routeTip{
+		border-radius: 2px;
+		display: none;
+		position: fixed;
+		background: #dad5d5;
+		color: gray;
+		font-size: 0.1rem;
+		padding: 2px 8px;
+	}	
+}
+
+@mixin english-plate {
+	.plate-head-zone {
+		.landmark {
+			.nation {
+				font-size: $nation-font-size;
+			}
+		}
+
+		.head-info {
+			.time {
+				.draw-issue {
+					.draw-status {
+						span {
+							font-size: $draw-status-font-size;
+							-webkit-transform: scale(0.66666);
+						}
+					}
+
+					.issue {
+						span {
+							font-size:  $issue-font-size;
+							-webkit-transform: scale(0.75);
+						}
+					}
+				}
+
+				.count-down {
+					font-size: $countdown-font-size;
+				}
+			}
+
+			.category {
+				.playing-item {
+					font-size: 0.13rem;
+				}
+			}
+		}
+	}
+
+	.plate-play-zone {
+		.qw-plate {
+			.row {
+				.column {
+					.text {
+						font-size: 0.13rem;
+					}
+
+					.value {
+						font-size: 0.12rem;
+					}
+				}
+			}
+		}
+
+		.rx-plate {
+			.row {
+				.column {
+					.ball {
+						font-size: .12rem;
+					}
+				}
+			}
+		}
+	}
+
+	.plate-info-zone {
+		.draw-route {
+			.wrapper {
+				.left-zone {
+					ul {
+						li {
+							font-size: .12rem;
+						}
+
+						.circle {
+							font-size: .12rem;
+						}
+					}
+
+					.map {
+						.table {
+							.tbody {
+								.tr {
+									.td {
+									    font-size: 0.1rem;
+									}
+								}
+							}
+						}					
+					}
+				}
+
+				.draw-route-naver {
+					.text {
+						font-size: .12rem;
+						padding: 0;
+						margin-top: 0.1rem;
+					}
+				}
+			}
+		}
+
+		.draw-detail {
+			.wrapper {
+				.draw-detail-naver {
+					.text {
+						font-size: .12rem;
+						padding: 0rem;
+						margin-top: 0.1rem;
+					}
+				}
+
+				.timeline {
+					.timeline-slider {
+						.chunks-line {
+							.chunk {
+								.item {
+									.item-wrapper {
+										.info {
+											font-size: .14rem;
+										}
+
+										.table {
+											.tbody {
+												.row {
+													.td {
+														span {
+															font-size: .14rem;
+															-webkit-transform: scale(0.75); 
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}	
+}
+
+.plate {
+	@include plate;
+}
+
+.english {
+	@include english-plate;
+}
+
+.plate-ondrag {
+	opacity: .1;
+	transition: opacity .5s;
+}
+
+.plate-onover {
+	opacity: .1;
+}
+
+.sortable-ghost {
+  opacity: .8;
+}
+
+.sortable-chosen {
+  opacity: .6;
+}
+
+
+@media screen and (max-width: 1270px) {
+	.plate {
+		margin: 40px;
+	}
+}
+
+@media screen and (max-width: 1150px) {
+	.plate {
+		margin: 20px;
+	}
+}
+
+@media screen and (max-width: 1010px) {
+	.plate {
+		margin: 10px;
+	}
+}

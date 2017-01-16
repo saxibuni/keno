@@ -1,0 +1,12 @@
+.countdown-progress {
+	background-color: #E8EEEF;
+	height: 0.05rem;
+	width: 100%;
+
+	.filler {
+		background-color: #58BE79;
+		float: left;
+		height: 0.05rem;
+		width: 0;
+	}
+}

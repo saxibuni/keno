@@ -1,0 +1,60 @@
+@import "../mixins.scss";
+
+.bean-overlay {
+    background-color: #f8fbfd;
+    opacity: 0.85;
+    position: absolute;
+    display: none;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    .img {
+        position: absolute;
+        top: 30%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .announcement {
+        color: $light-theme-color;
+        height: 30px;
+        position: absolute;
+        top: 60%;
+        width: 100%;
+        text-align: center;
+
+        &:first-child {
+            top: 60%;
+        }
+
+        &:nth-child(2) {
+            top: 70%;
+        }
+    }
+}
+
+
+.stop-bet-overlay {
+    background-color: #f8fbfd;
+    opacity: 0.85;
+    position: absolute;
+    display: none;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.market-close-overlay {
+    background-color: #f8fbfd;
+    opacity: 0;
+    position: absolute;
+    display: none;
+    left: 0;
+    right: 0;
+    top: 1.23rem;
+    bottom: 1.63rem;
+    z-index: 2;
+}
